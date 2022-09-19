@@ -1,0 +1,15 @@
+<template>
+
+    <h1>Hello from parent contructor</h1>
+
+    <template if:true={display}>
+
+        <c-constructor-example></c-constructor-example>
+
+    </template>
+    
+
+    <lightning-button variant="brand" label="Show/Hide" title="Primary action" style='color:item' onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+
+    
+</template>

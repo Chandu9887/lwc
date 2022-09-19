@@ -1,0 +1,39 @@
+<template>
+
+    <div class="slds-card slds-p-around_medium">
+
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium">
+
+                <lightning-input type="text" label="Name" data-id="nameField"></lightning-input>
+
+            </div>
+            <div class="slds-col slds-size_6-of-12">
+
+                <lightning-input type="text" label="Number Of Employees" data-id="noeField"></lightning-input>
+
+            </div>
+
+            <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium">
+
+                <lightning-input type="text" label="Annual Revenue" data-id="annualField"></lightning-input>
+
+            </div>
+            <div class="slds-col slds-size_6-of-12">
+
+                <lightning-input type="text" data-id="ratingField" label="Rating"></lightning-input>
+
+            </div>
+
+            <div class="slds-col slds-size_12-of-12 slds-align_absolute-center slds-p-top_medium">
+                <lightning-button variant="brand" label="Brand" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    
+            </div>
+
+            <c-inner-component></c-inner-component>
+
+        </div>
+
+    </div>
+    
+</template>
