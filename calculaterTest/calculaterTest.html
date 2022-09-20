@@ -1,0 +1,85 @@
+<template>
+    <div class="slds-card slds-p-around_medium slds-wrap">
+        <h1>                          Calculator</h1>
+        <lightning-input type="text" label="Enter Numbers" class="inputClass"></lightning-input>
+        
+        <div class="slds-grid slds-gutters slds-p-top_medium">
+            <div class="slds-col">
+                <lightning-button variant="brand-outline" label="1" title="Primary action" onclick={handleClickone} class="slds-m-left_x-small one" ></lightning-button>
+
+            </div>
+            <div class="slds-col">
+                <lightning-button variant="brand-outline" label="2" title="Primary action" onclick={handleClicktwo} class="slds-m-left_x-small two"></lightning-button>
+
+            </div>
+            <div class="slds-col">
+                <lightning-button variant="brand-outline" label="3" title="Primary action" onclick={handleClickthree} class="slds-m-left_x-small three"></lightning-button>
+
+            </div>
+            <div class="slds-col">
+                <lightning-button variant="brand" label="+" title="Primary action" onclick={handleClickplus} class="slds-m-left_x-small plus"></lightning-button>
+
+            </div>
+          </div>
+
+          <div class="slds-grid slds-gutters slds-p-top_medium">
+            <div class="slds-col">
+                <lightning-button variant="brand-outline" label="4" title="Primary action" onclick={handleClickfour} class="slds-m-left_x-small four"></lightning-button>
+
+            </div>
+            <div class="slds-col">
+                <lightning-button variant="brand-outline" label="5" title="Primary action" onclick={handleClickfive} class="slds-m-left_x-small five"></lightning-button>
+
+            </div>
+            <div class="slds-col">
+                <lightning-button variant="brand-outline" label="6" title="Primary action" onclick={handleClicksix} class="slds-m-left_x-small six"></lightning-button>
+
+            </div>
+            <div class="slds-col">
+                <lightning-button variant="brand" label="-" title="Primary action" onclick={handleClickminus} class="slds-m-left_x-small minus"></lightning-button>
+
+            </div>
+          </div>
+          <div class="slds-grid slds-gutters slds-p-top_medium">
+            <div class="slds-col">
+                <lightning-button variant="brand-outline" label="7" title="Primary action" onclick={handleClickseven} class="slds-m-left_x-small seven"></lightning-button>
+
+            </div>
+            <div class="slds-col">
+                <lightning-button variant="brand-outline" label="8" title="Primary action" onclick={handleClickeight} class="slds-m-left_x-small eight"></lightning-button>
+
+            </div>
+            <div class="slds-col">
+                <lightning-button variant="brand-outline" label="9" title="Primary action" onclick={handleClicknine} class="slds-m-left_x-small nine"></lightning-button>
+
+            </div>
+            <div class="slds-col">
+                <lightning-button variant="brand" label="*" title="Primary action" onclick={handleClickstar} class="slds-m-left_x-small star"></lightning-button>
+
+            </div>
+          </div>
+          <div class="slds-grid slds-gutters slds-p-top_medium">
+            <div class="slds-col ">
+                <lightning-button variant="destructive-text" label="CLR" title="Primary action" onclick={handleClickclear} class="slds-m-left_x-small clear"></lightning-button>
+
+            </div>
+            <div class="slds-col slds-p-left_none">
+                <lightning-button variant="brand-outline" label="0" title="Primary action" onclick={handleClickzero} class="slds-m-left_x-small zero"></lightning-button>
+
+            </div>
+            <div class="slds-col">
+                <lightning-button variant="success" label="=" title="Primary action" onclick={handleClickresult} class="slds-m-left_x-small result"></lightning-button>
+
+            </div>
+            <div class="slds-col">
+                <lightning-button variant="brand" label="/" title="Primary action" onclick={handleClickslash} class="slds-m-left_x-small slash"></lightning-button>
+
+            </div>
+          </div>
+        
+        
+
+
+    </div>
+    
+</template>
