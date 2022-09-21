@@ -1,0 +1,22 @@
+<template>
+
+    <lightning-button label="to expand row" variant="brand"  onclick={handleClick}></lightning-button>
+    <lightning-tree-grid
+         
+    columns={column}
+    key-field="id"
+    data={rows}
+    onrowselection={handleRowSelection}
+    expanded-rows={expandRows}
+    onheaderaction={handleAction}
+    ontoggle={handleToggle}
+
+    >
+
+
+    </lightning-tree-grid>
+    <div>
+        {newRows}
+    </div>
+    
+</template>
