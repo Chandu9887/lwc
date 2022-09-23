@@ -1,0 +1,23 @@
+<template>
+    <template for:each={ProductData} for:item="pro">
+        <div key={pro.id}>{pro.Name}</div>
+        <div key={pro.id}>{pro.Product_Price__c}</div>
+        <div key={pro.id}>
+            <img style="max-width:10%;max-height:10%;" src={pro.Food_Image__c}>
+        </div>
+        <template if:true={selection} >
+            <lightning-button label="+" class="slds-button" variant="brand" key={pro.id} onclick={handlePlus}></lightning-button>
+             {Count}
+            <lightning-button label="-" class="slds-button" variant="brand" key={pro.id} onclick={handleMinus}></lightning-button>
+        </template>
+        <template if:false={selection}  >
+            <lightning-button label="Add" class="slds-button" variant="brand" key={pro.id} onclick={handleAdd}></lightning-button>
+        </template>
+
+    </template>
+    <br>
+    <lightning-button label="click me" variant="brand" onclick={handleClick}></lightning-button>
+    
+
+
+</template>
