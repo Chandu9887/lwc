@@ -1,0 +1,45 @@
+<template>
+    <template for:each={ProductData} for:item="pro">
+        
+        <div key={pro.Id} style="display:flex;" class="slds-card"> 
+            
+            <img style="max-wIdth:10%;max-height:10%;border-radius:20%;padding-bottom:5px;" src={pro.Food_Image__c}>
+            
+               <p style="padding:10px;"> <b>{pro.Name}</b><br>
+                <b>Rs:</b> {pro.Product_Price__c} </p>
+           
+
+           <template if:true={pro.select} >
+           
+            <p style="padding-top:18px;display:inline-block;"><lightning-button label="+" class="slds-button" variant="brand" value={pro.Id} key={pro.Id} id={pro.Id} onclick={handlePlus}></lightning-button></p>
+            <p style="margin-top:22px;display:inline-block;">
+             {pro.qty}
+             </p>
+         
+            <p style="padding-top:18px;display:inline-block;"><lightning-button label="-" class="slds-button" variant="brand" value={pro.Id}  key={pro.Id} onclick={handleMinus}></lightning-button>
+            </p>
+            </template>
+
+        <template if:false={pro.select}  >
+
+            <lightning-button label="Add" class="slds-button" variant="brand" value={pro.Id}  key={pro.Id} onclick={handleAdd}></lightning-button>
+        
+        </template>
+        </div>
+
+        
+
+    </template>
+    <br>
+    <template if:true={ShowBtn}>
+        <lightning-button label="click me" variant="brand" onclick={handleClick}></lightning-button>
+    </template>
+    <template if:true={orderPlaced}>
+        <p style="color:Green;">Order Placed</p>
+    </template>
+    
+    <lightning-button label="Order" variant="brand" onclick={handleOrder}></lightning-button>
+    
+     
+
+</template>

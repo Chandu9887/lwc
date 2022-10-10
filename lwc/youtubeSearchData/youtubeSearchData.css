@@ -1,0 +1,504 @@
+.par{
+	padding:10px;
+	font-family:"Roboto","Arial",sans-serif;
+	display: flex;
+    flex-direction: column;
+}
+
+.bolt{
+	font-size:18px;
+	color:#FFFFFF;
+	font-weight: 400 ;
+}
+
+.boltt{
+	font-size:12px;
+	color:#AAAAAA;
+}
+
+.bolttt{
+	font-size:12px;
+	color:#AAAAAA;
+}
+
+.dar{
+
+	background-color:black;
+	position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.mymodal {
+  
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 200px; /* Location of the box */
+  padding-left: 260px;
+  left: 0;
+  top: 0;
+  
+  
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carram board Timer</title>
+     <link rel="stylesheet" href="carram.css">
+     
+     
+</head>
+<body>
+    
+    <div>
+        <button onclick="addFunction()">Add Player</button>
+        <h1></h1>
+    </div>
+    <br>
+    <div>
+        <label for="gt">Game Time</label>
+        <input type="text" name="" id="gt" onchange="myFunction()">
+
+        <label for="bt">Break Time</label>
+        <input type="text" name="" id="bt" onchange="myFunctionb()">
+    </div>
+    <br>
+    <div>
+        <button onclick="startFunction()">Start Game</button>
+        <button onclick="breakFunction()">Break</button>
+    </div>
+    <br>
+    <div>
+        
+        <label for="p1">Player1:</label>
+        <input type="text" name="p1" id="p1">
+        <button onclick="myStop1()" id="btn1">Stop</button>
+
+        <label for="p2">Player2:</label>
+        <input type="text" name="p2" id="p2">
+        <button onclick="myStop2()" id="btn2">Stop</button>
+     
+        <div id="pp3">
+            <label for="p3">Player3:</label>
+            <input type="text" name="p3" id="p3">
+            <button onclick="myStop3()" id="btn3">Stop</button>
+        </div>
+        
+        <div id="pp4">
+            <label for="p4">Player4:</label>
+            <input type="text" name="p4" id="p4">
+            <button onclick="myStop()" id="btn4">Stop</button>
+
+        </div>
+        
+        <br>
+        <div>
+            <img src="https://m.media-amazon.com/images/I/81da9FrGSXS._SL1500_.jpg" alt="carram image" class="cimage">
+        </div>
+
+
+    </div>
+    <script src="carram.js"></script>
+    
+</body>
+</html> 
+
+
+
+.cimage{
+    height: 300px;
+    width: 300px;
+}
+
+
+document.getElementById('pp3').style.display='none';
+document.getElementById('pp4').style.display='none';
+
+var count=2;
+function addFunction()
+{
+    if(count==4)
+    {
+        console.log('you cant add player')
+    }else{
+        count++;
+    }
+    if(count==3)
+    {
+        document.getElementById('pp3').style.display='block';
+    }else if(count==4)
+    {
+        document.getElementById('pp4').style.display='block';
+    }else{
+        let header = document.querySelector("h1");
+        header.innerText = "you cant add more player";
+    }
+    
+}
+
+
+var tTime;
+
+function myFunction()
+{
+    tTime=document.getElementById('gt').value;
+    console.log(tTime);
+}
+
+var bTime;
+ 
+function myFunctionb()
+{
+    bTime=document.getElementById('bt').value;
+    console.log(bTime);
+    
+}
+
+
+
+var remTime=0;
+var eachPlayerTime=0;
+
+
+var i=0;
+var j=0;
+var myInterval1;
+function startFunction()
+{
+    remTime=tTime-bTime;
+    console.log(remTime);
+    if(i==0){
+        if(count==2)
+        {   
+            eachPlayerTime=(remTime/2)*60;
+            document.getElementById("p1").value=eachPlayerTime;
+            document.getElementById("p2").value=eachPlayerTime;
+            document.getElementById("p3").value=NaN;
+            document.getElementById("p4").value=NaN;   
+        }else if(count==3)
+        {
+            eachPlayerTime=(remTime/3)*60; 
+            document.getElementById("p1").value=eachPlayerTime;
+            document.getElementById("p2").value=eachPlayerTime;
+            document.getElementById("p3").value=eachPlayerTime;
+            document.getElementById("p4").value=NaN;  
+        }else{
+            eachPlayerTime=(remTime/4)*60; 
+            document.getElementById("p1").value=eachPlayerTime;
+            document.getElementById("p2").value=eachPlayerTime;
+            document.getElementById("p3").value=eachPlayerTime;
+            document.getElementById("p4").value=eachPlayerTime;  
+        }
+   }
+    console.log(eachPlayerTime)
+  
+    i=1;
+    const element = document.getElementById("p1");
+    myInterval1=setInterval(function(){element.value--;
+    
+        if(element.value==0)
+        {
+            j++;
+            document.getElementById("btn1").disabled = true;
+            clearInterval(myInterval1);
+            const element1 = document.getElementById("p2");
+            if(element1.value==0)
+            {
+                
+                if(count==2)
+                {
+                     console.log('game over 2');
+                     
+                }else{
+                    const element2 = document.getElementById("p3");
+                    if(element2.value==0)
+                    {
+                        const element3 = document.getElementById("p4");
+                        if(element3.value==0)
+                        {
+                            console.log('game over');
+                        }
+
+                    }else{
+                        myInterval3=setInterval(function(){element2.value--}, 1000);
+                    }
+                }
+                
+            }else{
+                myInterval2=setInterval(function(){element1.value--;
+                
+                   if(element1.value==0)
+                   {
+                    clearInterval(myInterval2);
+                      document.getElementById("btn2").disabled = true;
+                      if(count==2)
+                      {
+                          
+                          console.log('game over 1')
+                      }else{
+                        const element4 = document.getElementById("p3");
+                        myInterval3=setInterval(function(){element4.value--;
+                        
+                            if(element4.value==0)
+                            {
+                                clearInterval(myInterval3);
+                                document.getElementById("btn3").disabled = true;
+                                if(count==3)
+                                {
+                                    
+                                    console.log('game over 3');
+                                }else{
+                                    const element5 = document.getElementById("p4");
+                                    myInterval3=setInterval(function(){element5.value--;
+                                         if(element5.value==0)
+                                         {
+                                            clearInterval(myInterval4);
+                                            document.getElementById("btn4").disabled = true;
+                                            console.log('game over');
+                                         }
+                             
+                                    
+                                    },1000);
+
+                                }
+                            }   
+                        
+                        }, 1000);
+                      }
+                   }
+                
+                }, 1000);
+            }
+            
+            
+        }
+    
+    
+    
+    }, 1000);
+    
+}
+
+// function myFunctionp1()
+// {
+//     const element = document.getElementById("p1");
+//     element.value++;
+
+// }
+
+// //setInterval(myFunctionp1, 1000);
+
+// const myInterval1=setInterval(myFunctionp1, 1000);
+var myInterval2;
+function myStop1() {
+    clearInterval(myInterval1);
+    i=2;
+    //document.getElementById("p1").value=0;
+    const element = document.getElementById("p2");
+    myInterval2=setInterval(function(){element.value--;
+    
+        if(element.value==0)
+        {
+            j++;
+            clearInterval(myInterval1);
+            const element1 = document.getElementById("p3");
+            if(element1.value==0)
+            {
+                const element2 = document.getElementById("p4");
+                if(element2.value==0)
+                {
+                    const element3 = document.getElementById("p1");
+                    if(element3.value==0)
+                    {
+                        console.log('game over');
+                    }
+
+                }else{
+                    myInterval3=setInterval(function(){element2.value--}, 1000);
+                }
+                
+            }else{
+                myInterval2=setInterval(function(){element1.value--}, 1000);
+            }
+            
+            
+        }
+    
+    }, 1000);
+
+    
+}
+
+// function myFunctionp2()
+// {
+//     // const element = document.getElementById("p2");
+//     // element.value++;
+    
+// }
+
+
+
+//setInterval(myFunctionp2, 1000);
+// const myInterval2=setInterval(myFunctionp2, 1000);
+var myInterval3;
+function myStop2() {
+    clearInterval(myInterval2);
+    i=3;
+    if(count==2)
+    {
+        const element = document.getElementById("p1");
+        myInterval1=setInterval(function(){element.value--}, 1000);
+    }else{
+        const element = document.getElementById("p3");
+        myInterval3=setInterval(function(){element.value--;
+        
+            if(element.value==0)
+            {
+                j++;
+                clearInterval(myInterval1);
+                const element1 = document.getElementById("p4");
+                if(element1.value==0)
+                {
+                    const element2 = document.getElementById("p1");
+                    if(element2.value==0)
+                    {
+                        const element3 = document.getElementById("p2");
+                        if(element3.value==0)
+                        {
+                            console.log('game over');
+                        }
+    
+                    }else{
+                        myInterval3=setInterval(function(){element2.value--}, 1000);
+                    }
+                    
+                }else{
+                    myInterval2=setInterval(function(){element1.value--}, 1000);
+                }
+                
+                
+            }
+        
+        }, 1000);
+
+    }   
+}
+
+// function myFunctionp3()
+// {
+//     const element = document.getElementById("p3");
+//     element.value++;
+
+// }
+
+//setInterval(myFunctionp3, 1000);
+// const myInterval3=setInterval(myFunctionp3, 1000);
+var myInterval4;
+function myStop3() {
+    clearInterval(myInterval3);
+    i=4;
+    if(count==3)
+    {
+        const element = document.getElementById("p1");
+        myInterval1=setInterval(function(){element.value--}, 1000);
+    }else{
+        const element = document.getElementById("p4");
+        myInterval4=setInterval(function(){element.value--;
+            if(element.value==0)
+            {
+                j++;
+                clearInterval(myInterval1);
+                const element1 = document.getElementById("p3");
+                if(element1.value==0)
+                {
+                    const element2 = document.getElementById("p4");
+                    if(element2.value==0)
+                    {
+                        const element3 = document.getElementById("p1");
+                        if(element3.value==0)
+                        {
+                            console.log('game over');
+                        }
+    
+                    }else{
+                        myInterval3=setInterval(function(){element2.value--}, 1000);
+                    }
+                    
+                }else{
+                    myInterval2=setInterval(function(){element1.value--}, 1000);
+                }
+                
+                
+            }
+        
+        }, 1000);
+    }
+}
+
+// function myFunctionp4()
+// {
+//     const element = document.getElementById("p4");
+//     element.value++;
+
+// }
+
+
+//myInterval=setInterval(myFunctionp4, 1000);
+
+function myStop() {
+    clearInterval(myInterval4);
+    const element = document.getElementById("p1");
+    myInterval1=setInterval(function(){element.value--}, 1000);
+    
+}
+
+var myInterval5;
+function breakFunction()
+{
+    clearInterval(myInterval1);
+    clearInterval(myInterval2);
+    clearInterval(myInterval3);
+    clearInterval(myInterval4);
+    const element = document.getElementById("bt");
+    element.value=bTime*60;
+    myInterval5=setInterval(function(){element.value--;
+        if(element.value==0)
+        {
+            console.log('from inside');
+            clearInterval(myInterval5);
+            if(i==1)
+            {
+                const element1 = document.getElementById("p1");
+                myInterval1=setInterval(function(){element1.value--}, 1000);
+            }else if(i==2)
+            {
+                const element2 = document.getElementById("p2");
+                myInterval2=setInterval(function(){element2.value--}, 1000);
+            }else if(i==3)
+            {
+                const element3 = document.getElementById("p3");
+                myInterval3=setInterval(function(){element3.value--}, 1000);
+            }else{
+                const element4 = document.getElementById("p4");
+                myInterval4=setInterval(function(){element4.value--}, 1000);
+            }
+        }
+    
+    
+    
+    }, 1000); 
+    
+}
+
+ */

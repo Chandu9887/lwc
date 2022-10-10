@@ -1,0 +1,88 @@
+<template>
+
+      <lightning-combobox
+            name="Object"
+            label="Object"
+            value={value}
+            placeholder="Select Object"
+            options={soptions}
+            onchange={handleChange}
+            ></lightning-combobox>
+
+<template if:true={showLoadingSpinner}>
+        <div style="z-index: 10000 !important;">
+            <lightning-spinner alternative-text="Uploading......" size="medium" style="z-index: 10000 !important;"></lightning-spinner>
+        </div>
+    </template>
+
+
+    <lightning-card title="Process CSV File">
+
+
+        <div style="margin-left:4%; margin:0px auto; width: 300px;">
+            <div>
+                <lightning-input label="" name="file uploader" onchange={handleFilesChange}  type="file" multiple></lightning-input>
+            </div><br/>
+            <div class="slds-text-body_small slds-text-color_error">{fileName}
+
+
+            </div><br/>
+            <div>
+                <lightning-button class="slds-m-top--medium" label={UploadFile} onclick={handleSave} variant="brand" disabled={isTrue}></lightning-button>
+            </div>
+        </div><br/><br/>
+
+      <!-- <div class="slds-p-around_small"> -->
+                <div class="slds-text-heading_small">TO-DO POSTS</div><br/>
+                <!-- <div class="flex-container"> -->
+                    <!-- <template for:each={fieldLabel} for:item="item"> -->
+                    
+                       <table>
+                           <tbody>
+                                <tr>
+                                    <th>Name</th>
+                                </tr>
+                                <template for:each={fieldLabel} for:item="item">
+                                    <tr key={item}>
+                                        <td id={item.QualifiedApiName} draggable="true" ondragstart={drag}>{item.QualifiedApiName}</td>
+                                    </tr>
+                                </template>
+                           </tbody>
+                        </table>
+                    
+                    
+                <!-- </div> -->
+                <hr></hr>
+                <div class="slds-text-heading_small">COMPLETED POSTS</div><br/>
+                <!-- <template for:each={fieldData} for:item="item"> -->
+                
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Csv file Field</th>
+                                <th>Name</th>
+                            </tr>
+                            <template for:each={fieldData} for:item="item">
+                                <tr key={item} >
+                                    <td>{item}</td>
+                                    <td ondragover={allowDrop} ondrop={drop} ></td>
+                                </tr>
+                            </template> 
+                        </tbody>   
+                    </table>
+                        
+                   
+               
+                
+     <!-- </div> -->
+      
+       <lightning-button class="slds-m-top--medium" label="Save File" onclick={handleToSave} variant="brand"></lightning-button>
+
+
+    </lightning-card>
+    
+
+
+    
+
+</template>

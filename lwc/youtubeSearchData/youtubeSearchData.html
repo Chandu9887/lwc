@@ -1,0 +1,36 @@
+<template>
+    <lightning-card>
+    <div class="slds-p-around_medium">
+    <div class="slds-p-around_medium">
+    <lightning-input type="text" variant="standard" name="name" label="Search" class="ytb" placeholder="Search..."></lightning-input>
+    
+   
+    <lightning-button variant="brand" label="Search" title="titleName" onclick={handleClick}></lightning-button>
+    </div>
+    <br>
+    <template for:each={allData} for:item="item">
+        <div key={item}  class="slds-p-around_medium dar" >
+            <div  onclick={handleClickl} > <image src={item.thumbnails__c} key={item.thumbnails__c} class={item.open_video__c}></div>
+                <p key={item.video_title__c}  class="par"><b class="bolt" >{item.video_title__c}</b><br><b  class="boltt" >{item.Name}</b><br><b  class="bolttt">{item.youtube_description__c}</b><lightning-button variant="brand" label="Bookmark" title="titleName" onclick={handleBook} class={item.open_video__c}></lightning-button></p>
+                <!-- <p key={item.Name}>{item.Name}</p> -->
+                <!-- <p key={item.youtube_description__c}>{item.youtube_description__c}</p> -->
+                <template if:true={item.select}>
+                    <div  class="mymodal" key={item}  > 
+                    <!-- Modal content -->
+                        <div class="modal-content"> 
+                            <span class={item.open_video__c} onclick={handleClickz} style="color:white;font-size:30px;position:fixed;right:5;top:5;" >&times;</span>
+                        
+                            <iframe id="cartoonVideo" width="640" height="360" src={item.open_video__c} frameborder="0" allowfullscreen></iframe>
+                        </div> 
+                    </div> 
+                </template>
+            
+    
+        </div>
+    </template>  
+    </div> 
+    </lightning-card>
+
+     
+
+</template>

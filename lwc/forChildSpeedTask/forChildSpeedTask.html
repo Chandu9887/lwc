@@ -1,0 +1,11 @@
+<template>
+    <template if:true={red}>
+        <lightning-button variant="destructive" label="Destructive" title="Destructive action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    </template>
+    <template if:true={green}>
+        <lightning-button variant="success" label="Success" title="Successful action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    </template>
+    <template if:true={yellow}>
+        <lightning-button variant="brand-outline" label="Brand Outline" title="Primary action with lighter look" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    </template>
+</template>

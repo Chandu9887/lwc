@@ -1,0 +1,33 @@
+<template>
+     <lightning-combobox
+            name="Object"
+            label="Object"
+            value={value}
+            placeholder="Select Object"
+            options={soptions}
+            onchange={handleChange}
+            ></lightning-combobox>
+
+       <lightning-card title="All Feilds">
+        <div class="slds-p-around_small">
+            <lightning-dual-listbox name="Field"
+                                    label="Select Fields"
+                                    source-label="Fields"
+                                    selected-label="Selected"
+                                    field-level-help="Select your preferred languages"
+                                    options={lstOptions}
+                                    onchange={handleChangetwo}></lightning-dual-listbox>
+                                    <br/>
+           
+        </div>
+      <lightning-button variant="brand-outline" label="Show Record" title="Primary action with lighter look" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+      <lightning-button variant="brand-outline" label="Create New Record" title="Primary action with lighter look" onclick={handleNewRecord} class="slds-m-left_x-small"></lightning-button>
+      </lightning-card>  
+      <lightning-button variant="brand" label="Export CSV File" title="Export Contact Data" onclick={exportContactData}></lightning-button>
+      <lightning-datatable data={data} columns={column} key-field="id" onrowselection={handleRowSelection} onheaderaction={handleHeaderAction}>
+     
+       </lightning-datatable>
+
+
+
+</template>

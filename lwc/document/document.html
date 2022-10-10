@@ -1,0 +1,42 @@
+<template>
+    <lightning-button variant="Brand" label="New" title="titleName" onclick={handleClick}></lightning-button>
+
+    <lightning-combobox
+            name="progressss"
+            label="Type Of Document"
+            value={value}
+            placeholder="Select property"
+            options={options}
+            onchange={handleChange} ></lightning-combobox>
+
+    <lightning-combobox
+            name="progress"
+            label="isActive"
+            value={values}
+            placeholder="Select propertys"
+            options={optionss}
+            onchange={handleChanges} ></lightning-combobox>        
+
+
+
+    <lightning-accordion >
+         <template for:each={newData} for:item="obj">   
+                <lightning-accordion-section name={obj.Valid_From_Date__c} key={obj.Valid_From_Date__c} label={obj.Valid_From_Date__c}>
+                        <lightning-datatable data={data} 
+                                columns={column} 
+                                key-field="id"
+                                onrowselection={handleRowSelection} 
+                                onheaderaction={handleHeaderAction}
+                                onrowaction={handleRowAction}
+                                sorted-by={sortBy}
+                                sorted-direction={sortDirection}
+                                onsort={doSorting}
+                                >
+                                </lightning-datatable>
+                                
+                </lightning-accordion-section>
+         </template>
+     </lightning-accordion>
+
+    
+</template>
